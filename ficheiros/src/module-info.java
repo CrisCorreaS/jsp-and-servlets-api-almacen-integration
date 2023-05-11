@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author ccorreas
- *
- */
-module ficheiros {
-}
