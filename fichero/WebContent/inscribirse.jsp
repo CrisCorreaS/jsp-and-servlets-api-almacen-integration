@@ -8,34 +8,36 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inscripcion</title>
+	<style>
+		input:valid, textarea:valid {
+    		background: rgba(124,252,0,0.3);
+		}
+		
+		input:invalid, textarea:invalid {
+    		background: rgba(255,0,0,0.3);
+		}
+	</style>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 	<!-- Start Content -->
-		<div id="home" class="w3-content">
+	<jsp:include page="cabecera.jsp" flush="true"></jsp:include>
 	
-		<!-- Navigation (Stays on Top) -->
-		<div class="w3-top w3-bar w3-black">
-			<a href="${pageContext.request.contextPath}/index.jsp" class="w3-bar-item w3-button">Home</a>
-			<a href="${pageContext.request.contextPath}/ListClientes" class="w3-bar-item w3-button">Lista de clientes</a>
-			<a href="${pageContext.request.contextPath}/ListFiles" class="w3-bar-item w3-button">Lista de archivos</a>
-			<a href="${pageContext.request.contextPath}/contacto.jsp" class="w3-bar-item w3-button">Contacto</a>
-			<a href="${pageContext.request.contextPath}/inscribirse.jsp" class="w3-bar-item w3-button">Inscripcion</a>
-		</div>
+	<div id="home" class="w3-content">
 		
 	<!-- Contact Section -->
 		<div id="contact" class="w3-container w3-padding-top-32">
 
-			<h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contacto</h2>
+			<h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Inscripción</h2>
 			<p>Lets get in touch and talk about your next project</p>
 
 			<form action="formInscripcion.jsp">
-				<input class="w3-input w3-border" type="text" placeholder="Nombre" required name="nombre">
-				<input class="w3-input w3-section w3-border" type="text" placeholder="Primer Apellido" required name="apellido1">
-				<input class="w3-input w3-section w3-border" type="text" placeholder="Segundo Apellido" name="apellido2">
-				<input class="w3-input w3-section w3-border" type="text" placeholder="DNI" required name="dni">
-				<input class="w3-input w3-section w3-border" type="text" placeholder="Teléfono" required name="telefono">
+				<input class="w3-input w3-border" type="text" placeholder="Nombre" name="nombre" required pattern="[A-Za-z]{2,250}">
+				<input class="w3-input w3-section w3-border" type="text" placeholder="Primer Apellido" name="apellido1" required pattern="[A-Za-z]{2,250}">
+				<input class="w3-input w3-section w3-border" type="text" placeholder="Segundo Apellido" name="apellido2" pattern="[A-Za-z]{2,250}">
+				<input class="w3-input w3-section w3-border" type="text" placeholder="DNI" name="dni" required pattern="[0-9]{8}[A-Za-z]{1}">
+				<input class="w3-input w3-section w3-border" type="text" placeholder="Teléfono" name="telefono" required pattern="[A-Za-z0-9]{9,12}">
 				<button class="w3-button w3-black w3-section" type="submit">
 					<i class="fa fa-paper-plane"></i> Inscripción
 				</button>
@@ -44,9 +46,8 @@
 			<img src="./img/img_ny.jpg" class="w3-image" style="width:100%">
 
 	<!--Footer-->
-		<footer class="w3-center w3-black w3-panel w3-padding-16">
-			<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-		</footer>
+		<jsp:include page="footer.jsp" flush="true"></jsp:include>
+		
 	</div>
 </body>
 </html>

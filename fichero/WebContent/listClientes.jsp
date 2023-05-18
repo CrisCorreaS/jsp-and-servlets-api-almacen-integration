@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib uri = "jakarta.tags.core" prefix = "c" %>
-<!-- < uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %> -->
+
 <%@ page import="java.util.Iterator" %>
 <%@ page import="java.io.File" %>
 <%@ page import="java.util.Arrays" %>
@@ -27,37 +27,62 @@ pageContext.setAttribute("lFiles", allSubFiles);
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Listado App Ficheiros</title>
+<title>Listado Clientes</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	<style>
+		tr:nth-child(even) {
+  			background-color: #f2f2f2;
+		}
+		
+		table, th, td {
+  			border: 1px solid black;
+  			border-collapse: collapse;
+		}
+	</style>
 </head>
 <body>
 	<!-- Start Content -->
-		<div id="home" class="w3-content">
+	<jsp:include page="cabecera.jsp" flush="true"><jsp:param name="etiquetaTitulo" value="listaClientes"/></jsp:include>
 	
-		<!-- Navigation (Stays on Top) -->
-		<div class="w3-top w3-bar w3-black">
-			<a href="${pageContext.request.contextPath}/index.jsp" class="w3-bar-item w3-button">Home</a>
-			<a href="${pageContext.request.contextPath}/ListClientes" class="w3-bar-item w3-button">Lista de clientes</a>
-			<a href="${pageContext.request.contextPath}/ListFiles" class="w3-bar-item w3-button">Lista de archivos</a>
-			<a href="${pageContext.request.contextPath}/contacto.jsp" class="w3-bar-item w3-button">Contacto</a>
-			<a href="${pageContext.request.contextPath}/inscribirse.jsp" class="w3-bar-item w3-button">Inscripcion</a>
-		</div>
-<br />&nbsp;
-	<br />&nbsp;
+	<div id="listClientes" class="w3-content">
+	<div id="contact" class="w3-container w3-padding-top-32">
+	<h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Lista de Clientes</h2>
+	
 	<table>
 		<thead>
 			<tr>
-				<th>Files</th>
+				<th>Id Cliente</th>
+				<th>Nombre</th>
+				<th>Primer Apellido</th>
+				<th>Segundo Apellido</th>
+				<th>DNI</th>
+				<th>Teléfono</th>
+				<th>Editar</th>
+				<th>Borrar</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="item" items="${lFiles}">
-				<tr>
-					<td>${item}</td>
-				</tr>
-			</c:forEach>
+			<c:forEach var="item" items="${LClientes}">
+					<tr>
+						<td>${item.idCliente}</td>
+						<td>${item.nombre}</td>
+						<td>${item.apellido1}</td>
+						<c:choose>
+							<c:when test="${empty item.apellido2}">
+								<td> - - - </td>
+							</c:when>
+							<c:otherwise>
+								<td>${item.apellido2}</td>
+							</c:otherwise>
+						</c:choose>
+						<td>${item.nif}</td>
+						<td>${item.telefono}</td>
+						<td></td>
+						<td></td>	
+					<tr>				
+				</c:forEach>
 		</tbody>
 		<tfoot>
 			<tr>
@@ -67,5 +92,15 @@ pageContext.setAttribute("lFiles", allSubFiles);
 			</tr>
 		</tfoot>
 	</table>
+	<br/>
+	<ul>
+		<c:forEach var="item" items="${LClientes}" varStatus="loop" >
+			<li>${item}</li>
+		</c:forEach>
+	</ul>
+	<br/>
+	<jsp:include page="footer.jsp" flush="true"></jsp:include>
+	</div>
+	</div>
 </body>
 </html>

@@ -8,21 +8,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Contacto</title>
+	<style>
+		input:valid, textarea:valid {
+    		background: rgba(124,252,0,0.3);
+		}
+		
+		input:invalid, textarea:invalid {
+    		background: rgba(255,0,0,0.3);
+		}
+	</style>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
 	<!-- Start Content -->
-		<div id="home" class="w3-content">
+	<jsp:include page="cabecera.jsp" flush="true"></jsp:include>
 	
-		<!-- Navigation (Stays on Top) -->
-		<div class="w3-top w3-bar w3-black">
-			<a href="${pageContext.request.contextPath}/index.jsp" class="w3-bar-item w3-button">Home</a>
-			<a href="${pageContext.request.contextPath}/ListClientes" class="w3-bar-item w3-button">Lista de clientes</a>
-			<a href="${pageContext.request.contextPath}/ListFiles" class="w3-bar-item w3-button">Lista de archivos</a>
-			<a href="${pageContext.request.contextPath}/contacto.jsp" class="w3-bar-item w3-button">Contacto</a>
-			<a href="${pageContext.request.contextPath}/inscribirse.jsp" class="w3-bar-item w3-button">Inscripcion</a>
-		</div>
+	<div id="home" class="w3-content">
 		
 	<!-- Contact Section -->
 		<div id="contact" class="w3-container w3-padding-top-32">
@@ -30,10 +32,10 @@
 			<h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contacto</h2>
 			<p>Lets get in touch and talk about your next project</p>
 
-			<form action="/action_page.jsp" target="_blank">
-				<input class="w3-input w3-border" type="text" placeholder="Nombre" required name="Nombre">
-				<input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
-				<input class="w3-input w3-section w3-border" type="text" placeholder="Comentario" required name="Comentario">
+			<form action="formContacto.jsp">
+				<input class="w3-input w3-border" type="text" placeholder="Nombre" name="Nombre" pattern="[A-Za-z]{2,50}">
+				<input class="w3-input w3-section w3-border" type="text" placeholder="Email" name="Email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+				<input class="w3-input w3-section w3-border" type="text" placeholder="Comentario de 150 caracteres" name="Comentario" required maxlength="150">
 				<button class="w3-button w3-black w3-section" type="submit">
 					<i class="fa fa-paper-plane"></i> Enviar
 				</button>
@@ -42,9 +44,8 @@
 			<img src="./img/map.jpg" class="w3-image" style="width:100%">
 
 	<!--Footer-->
-		<footer class="w3-center w3-black w3-panel w3-padding-16">
-			<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-		</footer>
+		<jsp:include page="footer.jsp" flush="true"></jsp:include>
+		
 	</div>
 </body>
 </html>

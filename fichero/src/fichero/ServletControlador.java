@@ -13,11 +13,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/ListClientes")
-public class ListClientes extends HttpServlet{
+@WebServlet("/ServletControlador")
+public class ServletControlador extends HttpServlet{
 	
 	private void doProc (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Logger logger = LoggerFactory.getLogger (ListClientes.class) ;
+		Logger logger = LoggerFactory.getLogger (ServletControlador.class) ;
 
 		MotorApiServicioNegocio mApi = new MotorApiServicioNegocio ();
 		List<String> allClientes=null;
@@ -29,7 +29,7 @@ public class ListClientes extends HttpServlet{
 			logger.error ("No se pudo obtener el listado de clientes");
 		}
 
-		request.setAttribute("LClientes", allClientes);
+		request.setAttribute ("LClientes", allClientes);
 		RequestDispatcher rd = request.getRequestDispatcher("listClientes.jsp");
 
 		String pFormato = request.getParameter ("formato");

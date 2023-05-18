@@ -8,15 +8,18 @@
 <%@ page import="java.util.Arrays" %>
 <%@ page import="java.lang.System" %>
 <%@ page import="java.util.Vector" %>
-
-<
+<%
+	String directoryPath = "C:\\Users\\ccorreas\\Desktop\\CarpetaServlet";
+	File directory = new File(directoryPath);
+	File[] files = directory.listFiles();
+%>
 
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Listado App Clientes</title>
+<title>Listado App Archivos</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="https://www.w3schools.com/lib/w3.js"></script>
@@ -24,38 +27,16 @@
 </head>
 <body>
 	<!-- Start Content -->
-		<div id="home" class="w3-content">
 	
-		<!-- Navigation (Stays on Top) -->
-		<div class="w3-top w3-bar w3-black">
-			<a href="${pageContext.request.contextPath}/index.jsp" class="w3-bar-item w3-button">Home</a>
-			<a href="${pageContext.request.contextPath}/ListClientes" class="w3-bar-item w3-button">Lista de clientes</a>
-			<a href="${pageContext.request.contextPath}/ListFiles" class="w3-bar-item w3-button">Lista de archivos</a>
-			<a href="${pageContext.request.contextPath}/contacto.jsp" class="w3-bar-item w3-button">Contacto</a>
-			<a href="${pageContext.request.contextPath}/inscribirse.jsp" class="w3-bar-item w3-button">Inscripcion</a>
-		</div>
-<br />&nbsp;
-	<br />&nbsp;
-	<table>
-		<thead>
-			<tr>
-				<th>Files</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="item" items="${lFiles}">
-				<tr>
-					<td>${item}</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-		<tfoot>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-		</tfoot>
-	</table>
+	<jsp:include page="cabecera.jsp" flush="true"></jsp:include>
+	<div id="listFiles" class="w3-content">
+	<div id="contact" class="w3-container w3-padding-top-32">
+	<h2 class="w3-border-bottom w3-border-light-grey w3-padding-16">Lista de Archivoss</h2>
+		
+	<ul>
+		<%for (File file : files){ %>
+			<li><img src="./img//icono.png" alt="icon"/><p"><%=file.getName()%></p></li>
+		<%}%>
+	</ul>
 </body>
 </html>
