@@ -7,6 +7,7 @@
 - Desarrollo de un jsp que liste todos los archivos de un directorio local
 - Forms con restricciones que llevan a una página de confirmación
 
+---
 
 ### v0.1.0
 #### Funcionalidad nueva:
