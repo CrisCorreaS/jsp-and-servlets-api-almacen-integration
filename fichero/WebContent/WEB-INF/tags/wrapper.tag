@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ tag language="java" pageEncoding="UTF-8"%>
+<%@attribute name="titulo" required="true" rtexprvalue="true"%>
+<%@attribute name="content" fragment="true"%>
+<%@attribute name="css" fragment="true"%>
 <%@ taglib uri = "jakarta.tags.core" prefix = "c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
@@ -9,18 +11,6 @@
 <fmt:setLocale value="${language}" />
 <fmt:setBundle basename="bundle.language" />
 
-<!-- < uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %> -->
-<%@ page import="java.util.Iterator" %>
-<%@ page import="java.io.File" %>
-<%@ page import="java.util.Arrays" %>
-<%@ page import="java.lang.System" %>
-<%@ page import="java.util.Vector" %>
-<%
-	String directoryPath = "C:\\Users\\ccorreas\\Desktop\\CarpetaServlet";
-	File directory = new File(directoryPath);
-	File[] files = directory.listFiles();
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +18,12 @@
 <title>${titulo}</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+	
+	
+	<jsp:invoke fragment="css"></jsp:invoke>
+	
+	
 </head>
 <body>
 		<div class="w3-top w3-bar w3-black">
@@ -49,17 +45,14 @@
 		
 		<div id="home" class="w3-content">
 		<div id="contact" class="w3-container w3-padding-top-32">
-	<jsp:include page="cabecera.jsp" flush="true"><jsp:param name="etiquetaTitulo" value="Lista de Archivos"/></jsp:include>
+			
+	
 		
-		<ul>
-			<%for (File file : files){ %>
-				<li><img src="./img//icono.png" alt="icon"/><p"><%=file.getName()%></p></li>
-			<%}%>
-		</ul>
+				<jsp:invoke fragment="content"></jsp:invoke>
+	
 		
-		<br/>
 		
-	<footer class="w3-center w3-black w3-panel w3-padding-16">
+			<footer class="w3-center w3-black w3-panel w3-padding-16">
 				<p><fmt:message key="footer"/> <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 			</footer>
 			<!-- End Content -->
