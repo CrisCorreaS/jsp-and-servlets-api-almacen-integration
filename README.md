@@ -1,5 +1,10 @@
 # jsp-and-servlets-jdbc2-database-connection
 
+
+Este es un proyecto realizado durante abril y mayo de 2023 en mis prácticas. Esta es la parte de modelo-vista-controlador que integra la API del almacén que está en el repositorio api-almacen-jdbc2-database-connection.
+
+---
+
 ### v0.0.1
 #### Funciones nuevas:
 - Creación de plantillas para la cabecera y el footer con la acción estandard <jsp:include page="..."/>
