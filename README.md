@@ -1,7 +1,7 @@
 # jsp-and-servlets-jdbc2-database-connection
 
 
-Este es un proyecto realizado durante abril y mayo de 2023 en mis prácticas. Esta es la parte de modelo-vista-controlador que integra la API del almacén que está en el repositorio api-almacen-jdbc2-database-connection.
+El repositorio engloba parte de un proyecto realizado durante abril y mayo de 2023 en mis prácticas. Esta es la parte de modelo-vista-controlador que integra la API del almacén que está en el repositorio api-almacen-jdbc2-database-connection.
 
 ---
 
