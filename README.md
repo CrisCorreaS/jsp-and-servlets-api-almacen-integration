@@ -20,6 +20,7 @@ El repositorio engloba parte de un proyecto realizado durante abril y mayo de 20
 
 ---
 
-### v0.1.1
-#### Función nueva:
-- Creación de una página personalizada para el error 404, que le indica al usuario si un enlace roto, defectuoso o que ya no existe y que, por lo tanto, no es posible navegar por él.
+### v0.2.0
+#### Funcionalidad nueva:
+- Creación de una página personalizada para el error 404, que le indica al usuario si un enlace está roto, defectuoso o que ya no existe y que, por lo tanto, no es posible navegar por él.
+- Desarrollo de un error handler para gestionar otro tipo de errores
