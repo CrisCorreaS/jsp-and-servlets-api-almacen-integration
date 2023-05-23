@@ -19,7 +19,7 @@
 	</jsp:attribute>
 	
 	<jsp:attribute name="content">
-	<jsp:include page="cabecera.jsp" flush="true"><jsp:param name="etiquetaTitulo" value="Lista de Fans"/></jsp:include>
+	<jsp:include page="cabecera.jsp" flush="true"><jsp:param name="etiquetaTitulo" value="Lista de Clientes"/></jsp:include>
 		
 		<table>
 		<thead>
@@ -36,18 +36,18 @@
 		<tbody>
 			<c:forEach var="item" items="${LClientes}">
 					<tr>
-						<td>${item.nombre}</td>
-						<td>${item.apellido1}</td>
+						<td>${item.get(1)}</td>
+						<td>${item.getApellido1()}</td>
 						<c:choose>
-							<c:when test="${empty item.apellido2}">
+							<c:when test="${empty item.getApellido2()}">
 								<td> - - - </td>
 							</c:when>
 							<c:otherwise>
-								<td>${item.apellido2}</td>
+								<td>${item.getApellido2()}</td>
 							</c:otherwise>
 						</c:choose>
-						<td>${item.nif}</td>
-						<td>${item.telefono}</td>
+						<td>${item.getNif()}</td>
+						<td>${item.getTelefono()}</td>
 						<td></td>
 						<td></td>	
 					<tr>				

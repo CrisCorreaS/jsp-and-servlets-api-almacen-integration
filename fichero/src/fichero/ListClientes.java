@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.feliz.almacen.api.MotorApiServicioNegocio;
+import org.feliz.almacen.api.modelo.ICliente;
 import org.slf4j.*;
 
 import jakarta.servlet.RequestDispatcher;
@@ -20,10 +21,10 @@ public class ListClientes extends HttpServlet{
 		Logger logger = LoggerFactory.getLogger (ListClientes.class) ;
 
 		MotorApiServicioNegocio mApi = new MotorApiServicioNegocio ();
-		List<String> allClientes=null;
+		List<ICliente> allClientes=null;
 
 		try {
-			allClientes = mApi.getListaClientes();
+			allClientes = mApi.listaClientes();
 		} catch (Exception e) {
 
 			logger.error ("No se pudo obtener el listado de clientes");
@@ -37,7 +38,7 @@ public class ListClientes extends HttpServlet{
 		rd = request .getRequestDispatcher ("listClientesFormato.jsp");
 		}
 
-		rd. forward (request, response);
+		rd.forward (request, response);
 
 	}
 
