@@ -1,5 +1,8 @@
 # jsp-and-servlets-api-almacen-integration
-![Badge en Desarollo](https://img.shields.io/badge/STATUS-FINALIZADO-violet) <br/>
+![Badge Finalizado](https://img.shields.io/badge/STATUS-FINALIZADO-violet)
+<img align="right" alt="License MIT" src="https://img.shields.io/badge/LICENSE-MIT-green" /> <br/>
+<img alt="java" src="https://img.shields.io/badge/-Java-EC2023?style=flat-square&logo=openjdk&logoColor=white" />
+<br/>
 <br/>
 El repositorio engloba parte de un proyecto realizado durante abril y mayo de 2023 en mis prácticas. Esta es la parte de modelo-vista-controlador que integra la API del almacén que está en el repositorio api-almacen-jdbc2-database-connection.
 
